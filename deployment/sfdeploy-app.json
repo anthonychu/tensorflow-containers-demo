@@ -12,6 +12,14 @@
     "workerReplicas": {
       "type": "int",
       "defaultValue": 1
+    },
+    "webImage": {
+      "type": "string",
+      "defaultValue": "anthonychu/imageclassifierweb:0.7"
+    },
+    "workerImage": {
+      "type": "string",
+      "defaultValue": "anthonychu/imageclassifierworker:0.2"
     }
   },
   "resources": [
@@ -33,7 +41,7 @@
               "codePackages": [
                 {
                   "name": "ImageClassifierWeb.Code",
-                  "image": "anthonychu/imageclassifierweb:0.7",
+                  "image": "[parameters('webImage')]",
                   "endpoints": [
                     {
                       "name": "Endpoint1",
@@ -64,7 +72,7 @@
               "codePackages": [
                 {
                   "name": "ImageClassifierWorker.Code",
-                  "image": "anthonychu/imageclassifierworker:0.2",
+                  "image": "[parameters('workerImage')]",
                   "volumeRefs": [
                     {
                       "name": "[resourceId('Microsoft.ServiceFabric/volumes', 'fruitshare')]",
