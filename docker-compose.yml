@@ -8,5 +8,5 @@ services:
     build: src/Classifier.Worker
     environment:
       API_BASE_URL: "http://web"
-    volumes:
-    - ./ignore/images:/app/assets/images
+    # volumes:
+    # - ./ignore/images:/app/assets/images

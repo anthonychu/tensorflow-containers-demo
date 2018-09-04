@@ -20,7 +20,7 @@ namespace Classifier.Worker
             var graph = new TFGraph();
             var model = File.ReadAllBytes("assets/model.pb");
             var labels = File.ReadAllLines("assets/labels.txt");
-            var hostname = System.Net.Dns.GetHostName();
+            var hostname = Guid.NewGuid().ToString();
             var jsonSettings = new JsonSerializerSettings
             {
                 ContractResolver = new CamelCasePropertyNamesContractResolver()

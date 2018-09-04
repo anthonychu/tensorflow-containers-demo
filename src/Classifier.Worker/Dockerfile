@@ -12,5 +12,6 @@ RUN dotnet publish -c Release -o out
 # build runtime image
 FROM microsoft/aspnetcore:2.0.7
 WORKDIR /app
+COPY ./assets .
 COPY --from=build-env /app/out ./
 ENTRYPOINT ["dotnet", "Classifier.Worker.dll"]
